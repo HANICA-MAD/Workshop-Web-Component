@@ -1,29 +1,27 @@
-class buttoon extends HTMLElement {
-    constructor() {
-        // If you define a constructor, always call super() first as it is required by the CE spec.
-        super();
+const currentDoc = document.currentScript.ownerDocument;
+class button extends HTMLElement {
+  constructor() {
+    // If you define a constructor, always call super() first as it is required by the CE spec.
+    super();
 
-        //Let's log every mouseclick event
-        this.addEventListener('click', e => {
-            console.log("Element was clicked!");
-        });
-    }
+    //Let's log every mouseclick event
+    this.addEventListener("click", e => {
+      console.log("Element was clicked!");
+    });
+  }
 
-    // Called when element is inserted in DOM
-    connectedCallback() {
-        const shadowRoot = this.attachShadow({mode: 'open'});
+  // Called when element is inserted in DOM
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    const template = currentDoc.querySelector("#button-workshop");
+    const instance = template.content.cloneNode(true);
+    shadowRoot.appendChild(instance);
 
-        // Select the template and clone it. Finally attach the cloned node to the shadowDOM's root.
-        // Current document needs to be defined to get DOM access to imported HTML
-        const btn = document.createElement("BUTTON");
-        var t = document.createTextNode("CLICK ME");
-        btn.appendChild(t);
-        shadowRoot.appendChild(btn);
+    const color = this.getAttribute("color");
+    const text = this.getAttribute("text");
 
-        btn.style.color = "blue";
-        btn.style.width = "250px";
-        btn.style.height = "250px";
-    }
+    this.shadowRoot.querySelector(".btnworkshop").style.color = color;
+  }
 }
 
-customElements.define('nice-button', buttoon);
+customElements.define("nice-button", button);

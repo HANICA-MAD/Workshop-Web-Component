@@ -1,0 +1,23 @@
+{
+  "name": "mad-button-workshop",
+  "version": "1.0.0",
+  "description": "mooie button voor MAD",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HANICA-MAD/Workshop-Web-Component.git"
+  },
+  "keywords": [
+    "button",
+    "mad"
+  ],
+  "author": "wij",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HANICA-MAD/Workshop-Web-Component/issues"
+  },
+  "homepage": "https://github.com/HANICA-MAD/Workshop-Web-Component#readme"
+}
