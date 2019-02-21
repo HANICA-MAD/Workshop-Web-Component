@@ -17,12 +17,13 @@ template.innerHTML = `
 
 ### Stap 2
 Maak een javascript klasse aan die HtmlElement extend
-
+```
 class iCounter extends HTMLElement {
   constructor() {
       super()
   }
 }
+```
 
 Deze klasse moet altijd de super aanroepen om bruikbaar te zijn
 
