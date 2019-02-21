@@ -3,29 +3,35 @@ class button extends HTMLElement {
   constructor() {
     // If you define a constructor, always call super() first as it is required by the CE spec.
     super();
-
-    //Let's log every mouseclick event
-    this.addEventListener("click", e => {
-      console.log("Element was clicked!");
-    });
+    this.changeColor = this.changeColor.bind(this);
   }
 
   // Called when element is inserted in DOM
   connectedCallback() {
-    const shadowRoot = this.attachShadow({ mode: "open" });
     const template = currentDoc.querySelector("#button-workshop");
     const instance = template.content.cloneNode(true);
-    shadowRoot.appendChild(instance);
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(instance);
 
-    const color = this.getAttribute("color");
-    const label = this.getAttribute("label");
     const bgcolor = this.getAttribute("bgcolor");
 
-    this.shadowRoot.querySelector(".btnworkshop").style.color = color;
-    this.shadowRoot.querySelector(
-      ".btnworkshop"
-    ).style.backgroundColor = bgcolor;
-    this.shadowRoot.querySelector(".btnworkshop").innerHTML = label;
+    this.btn = this.shadowRoot.querySelector(".btnworkshop");
+    this.input = this.shadowRoot.querySelector(".inputworkshop");
+    this.btn.addEventListener("click", this.changeColor);
+
+    // this.shadowRoot.querySelector(".btnworkshop").style.color = color;
+    this.btn.style.backgroundColor = bgcolor;
+    this.btn.style.color = this.color;
+    this.shadowRoot.querySelector(".btnworkshop").innerHTML =
+      "Click to change my color";
+  }
+
+  changeColor() {
+    this.btn.style.backgroundColor = this.input.value;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log(name, oldValue, newValue);
   }
 }
 
