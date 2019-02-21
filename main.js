@@ -18,9 +18,14 @@ class button extends HTMLElement {
     shadowRoot.appendChild(instance);
 
     const color = this.getAttribute("color");
-    const text = this.getAttribute("text");
+    const label = this.getAttribute("label");
+    const bgcolor = this.getAttribute("bgcolor");
 
     this.shadowRoot.querySelector(".btnworkshop").style.color = color;
+    this.shadowRoot.querySelector(
+      ".btnworkshop"
+    ).style.backgroundColor = bgcolor;
+    this.shadowRoot.querySelector(".btnworkshop").innerHTML = label;
   }
 }
 
