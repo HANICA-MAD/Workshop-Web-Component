@@ -89,3 +89,20 @@ Exporteer deze klasse met een bepaalde naam:
 ```
 customElements.define("i-counter", iCounter);
 ```
+
+### Stap 7
+Importeer het web component in een html bestand
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="module" src="counter.js"></script>
+</head>
+<body>
+    <i-counter value="5"></i-counter>
+    <link rel="import" href="button-template.html">
+</body>
+</html>
+
+```
