@@ -1,4 +1,4 @@
-### stap 1
+### Stap 1
 Maak een template aan die in de javascript wordt gebruikt, voeg eventueel de css toe
 
 ```
